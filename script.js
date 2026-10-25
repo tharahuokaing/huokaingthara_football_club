@@ -1,31 +1,47 @@
-// Toggle Language Function between English and Khmer
-let currentLang = 'en';
-
+// ==========================================
+// Language Toggle Functionality (EN / KH)
+// ==========================================
 function toggleLanguage() {
+    const langBtn = document.getElementById('lang-btn');
     const enElements = document.querySelectorAll('.en-text');
     const khElements = document.querySelectorAll('.kh-text');
-    const langBtn = document.getElementById('lang-btn');
 
-    if (currentLang === 'en') {
+    // Check current state based on the button text or a data attribute
+    const isKhmer = langBtn.getAttribute('data-lang') === 'kh';
+
+    if (!isKhmer) {
+        // Switch to Khmer
         enElements.forEach(el => el.style.display = 'none');
         khElements.forEach(el => el.style.display = 'block');
         langBtn.innerHTML = '🇬🇧 English';
-        currentLang = 'kh';
+        langBtn.setAttribute('data-lang', 'kh');
     } else {
-        enElements.forEach(el => el.style.display = 'block');
+        // Switch to English
         khElements.forEach(el => el.style.display = 'none');
+        enElements.forEach(el => el.style.display = 'block');
         langBtn.innerHTML = '🇰🇭 ខ្មែរ';
-        currentLang = 'en';
+        langBtn.setAttribute('data-lang', 'en');
     }
 }
 
+// ==========================================
 // Smooth Scrolling for Navigation Links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        document.querySelector(targetId).scrollIntoView({
-            behavior: 'smooth'
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
     });
 });
