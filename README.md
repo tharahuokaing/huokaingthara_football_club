@@ -1,7 +1,7 @@
 # huokaingthara_football_club
 ⚽ Huokaing Thara Football Club (HTFC) Website
 
-Welcome to the official web repository for Huokaing Thara Football Club (ក្លឹបបាល់ទាត់ ហួយកេង តារា). This project is a modern, responsive, and bilingual website built to showcase club news, player rosters, team history, and upcoming match information.
+Welcome to the official web repository for Huokaing Thara Football Club (ក្លឹបបាល់ទាត់ ហួកាំង ថារ៉ា). This project is a modern, responsive, and bilingual website built to showcase club news, player rosters, team history, and upcoming match information.
 
 🌟 Key Features
 
